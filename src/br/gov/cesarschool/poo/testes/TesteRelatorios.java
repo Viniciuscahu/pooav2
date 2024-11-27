@@ -1,17 +1,22 @@
 package br.gov.cesarschool.poo.testes;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import br.com.cesarschool.poo.titulos.entidades.Acao;
 import br.com.cesarschool.poo.titulos.entidades.EntidadeOperadora;
 import br.com.cesarschool.poo.titulos.entidades.Transacao;
 import br.com.cesarschool.poo.titulos.relatorios.RelatorioTransacaoBroker;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioTransacao;
-import br.com.cesarschool.poo.titulos.utils.*;
+import br.com.cesarschool.poo.titulos.utils.Comparador;
+import br.com.cesarschool.poo.titulos.utils.ComparadorPadrao;
+import br.com.cesarschool.poo.titulos.utils.ComparadorTransacaoPorNomeCredora;
+import br.com.cesarschool.poo.titulos.utils.Comparavel;
+import br.com.cesarschool.poo.titulos.utils.Ordenador;
 import br.gov.cesarschool.poo.daogenerico.Entidade;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class TesteRelatorios extends TesteGeral {
     private static final String NOME_DIR_TRANSACAO = PONTO + SEP_ARQUIVO + Transacao.class.getSimpleName();

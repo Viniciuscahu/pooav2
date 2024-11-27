@@ -6,19 +6,16 @@ import java.time.LocalDate;
 
 public class Ativo extends Entidade {
 
-    // Atributos
     private int identificador;
     private String nome;
     private LocalDate dataValidade;
 
-    // Construtor
     public Ativo(int identificador, String nome, LocalDate dataValidade) {
         this.identificador = identificador;
         this.nome = nome;
         this.dataValidade = dataValidade;
     }
 
-    // Getters e Setters
     public int getIdentificador() {
         return identificador;
     }

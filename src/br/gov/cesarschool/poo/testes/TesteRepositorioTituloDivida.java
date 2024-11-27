@@ -1,14 +1,15 @@
 package br.gov.cesarschool.poo.testes;
 
+import java.io.File;
+import java.time.LocalDate;
+
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import br.com.cesarschool.poo.titulos.entidades.TituloDivida;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioGeral;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioTituloDivida;
 import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
-import java.io.File;
-import java.time.LocalDate;
 
 public class TesteRepositorioTituloDivida extends TesteGeral {
     private static final RepositorioTituloDivida DAO = new RepositorioTituloDivida();
@@ -22,9 +23,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
     }
     @Test
     public void testDAO01() {
-        System.out.println("Arquivos antes de limpar: " + obterQtdArquivosDir(NOME_DIR_TITULO));
         excluirArquivosDiretorio(NOME_DIR_TITULO);
-        System.out.println("Arquivos após limpar: " + obterQtdArquivosDir(NOME_DIR_TITULO));
         TituloDivida acao = new TituloDivida(1, "A1", LocalDate.now(), 100.0);
         Assertions.assertTrue(DAO.incluir(acao));
         Assertions.assertEquals(obterQtdArquivosDir(NOME_DIR_TITULO), 1);

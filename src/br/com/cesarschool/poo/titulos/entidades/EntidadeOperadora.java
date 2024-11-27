@@ -4,14 +4,14 @@ import br.gov.cesarschool.poo.daogenerico.Entidade;
 
 public class EntidadeOperadora extends Entidade {
 
-    // Atributos
+
     private long identificador;
     private String nome;
     private boolean autorizadoAcao;
     private double saldoAcao;
     private double saldoTituloDivida;
 
-    // Construtor
+
     public EntidadeOperadora(long identificador, String nome, boolean autorizadoAcao) {
         this.identificador = identificador;
         this.nome = nome;
@@ -24,7 +24,6 @@ public class EntidadeOperadora extends Entidade {
         this.nome = nome;
     }
 
-    // Getters e Setters
     public long getIdentificador() {
         return identificador;
     }
@@ -51,7 +50,7 @@ public class EntidadeOperadora extends Entidade {
         return saldoTituloDivida;
     }
 
-    // Metodos
+
     public void creditarSaldoAcao(double valor) {
         saldoAcao += valor;
     }

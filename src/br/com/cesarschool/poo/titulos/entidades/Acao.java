@@ -4,16 +4,16 @@ import java.time.LocalDate;
 
 public class Acao extends Ativo{
 
-    // Atributos
+
     private double valorUnitario;
 
-    // Construtor
+
     public Acao(int identificador, String nome, LocalDate dataValidade, double valorUnitario) {
         super(identificador, nome, dataValidade);
         this.valorUnitario = valorUnitario;
     }
 
-    // Getters e Setters
+
     public double getValorUnitario() {
         return valorUnitario;
     }
@@ -21,7 +21,6 @@ public class Acao extends Ativo{
         this.valorUnitario = valorUnitario;
     }
 
-    // Metodos
     public double calcularPrecoTransacao(double montante) {
         return montante * valorUnitario;
     }

@@ -1,5 +1,12 @@
 package br.gov.cesarschool.poo.testes;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import br.com.cesarschool.poo.titulos.entidades.Acao;
 import br.com.cesarschool.poo.titulos.entidades.EntidadeOperadora;
 import br.com.cesarschool.poo.titulos.entidades.TituloDivida;
@@ -7,12 +14,6 @@ import br.com.cesarschool.poo.titulos.entidades.Transacao;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioGeral;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioTransacao;
 import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
-import java.io.File;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class TesteRepositorioTransacao extends TesteGeral {
     private static final RepositorioTransacao DAO = new RepositorioTransacao();

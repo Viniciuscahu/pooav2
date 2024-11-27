@@ -10,11 +10,14 @@ import br.gov.cesarschool.poo.daogenerico.Entidade;
 public class RelatorioTransacaoBroker {
     RepositorioTransacao repositorioTransacao = new RepositorioTransacao();
 
-    public Transacao[] relatorioTransacaoPorNomeEntidadeCredora() {
-        // Obtem todas as entidades
-        Entidade[] entidades = repositorioTransacao.buscarTodos();
 
-        // Converte entidades para Transacao, validando o tipo
+    /**
+     * Retorna um relatório de transações ordenado pelo nome da entidade credora.
+     *
+     * @return Array de transações ordenadas.
+     */
+    public Transacao[] relatorioTransacaoPorNomeEntidadeCredora() {
+        Entidade[] entidades = repositorioTransacao.buscarTodos();
         Transacao[] transacoes = converterParaTransacoes(entidades);
 
         ComparadorTransacaoPorNomeCredora comparador = new ComparadorTransacaoPorNomeCredora();
@@ -24,24 +27,15 @@ public class RelatorioTransacaoBroker {
     }
 
     public Transacao[] relatorioTransacaoPorDataHora() {
-        // Obtem todas as entidades
         Entidade[] entidades = repositorioTransacao.buscarTodos();
-
-        // Converte entidades para Transacao, validando o tipo
         Transacao[] transacoes = converterParaTransacoes(entidades);
-
-        // Ordena as transações pela data e hora
         ComparadorPorDataHora comparador = new ComparadorPorDataHora();
         Ordenador.ordenar(transacoes, comparador);
 
         return transacoes;
     }
 
-    // Método auxiliar para converter Entidade[] para Transacao[]
     private Transacao[] converterParaTransacoes(Entidade[] entidades) {
-        return java.util.Arrays.stream(entidades)
-                .filter(Transacao.class::isInstance) // Filtra apenas objetos do tipo Transacao
-                .map(Transacao.class::cast) // Faz o cast seguro para Transacao
-                .toArray(Transacao[]::new); // Converte para um array de Transacao
+        return java.util.Arrays.stream(entidades).filter(Transacao.class::isInstance).map(Transacao.class::cast).toArray(Transacao[]::new);
     }
 }

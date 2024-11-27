@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Transacao extends Entidade implements Comparavel {
 
-    // Atributos
     private EntidadeOperadora entidadeCredito;
     private EntidadeOperadora entidadeDebito;
     private Acao acao;
@@ -16,7 +15,6 @@ public class Transacao extends Entidade implements Comparavel {
     private double valorOperacao;
     private LocalDateTime dataHoraOperacao;
 
-    // Construtor
     public Transacao(EntidadeOperadora entidadeCredito, EntidadeOperadora entidadeDebito, Acao acao, TituloDivida tituloDivida, double valorOperacao, LocalDateTime dataHoraOperacao) {
         this.entidadeCredito = entidadeCredito;
         this.entidadeDebito = entidadeDebito;
@@ -26,7 +24,7 @@ public class Transacao extends Entidade implements Comparavel {
         this.dataHoraOperacao = dataHoraOperacao;
     }
 
-    // Getters e Setters
+
     public EntidadeOperadora getEntidadeCredito() {
         return entidadeCredito;
     }
@@ -56,8 +54,6 @@ public class Transacao extends Entidade implements Comparavel {
         String diferenca = "";
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-
-        // Converte o LocalDateTime para uma string no formato especificado
         String formattedDateTime = this.getDataHoraOperacao().format(formatter);
 
         if (this.getAcao() != null) {
@@ -74,4 +70,5 @@ public class Transacao extends Entidade implements Comparavel {
         Transacao outra = (Transacao) c;
         return outra.getDataHoraOperacao().compareTo(this.dataHoraOperacao);
     }
+
 }
